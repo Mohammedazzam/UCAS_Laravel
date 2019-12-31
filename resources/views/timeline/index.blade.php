@@ -1,42 +1,32 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simple Twitter</title>
-    {{--<h3>Welcome {!! $name !!}</h3>--}}
+@extends('layouts.default')
 
-    {{--<h3>Welcome <i>{!! $name !!}</i></h3>--}}
+@section('title','TimeLine')
 
-    <h3>Welcome <i>{{htmlentities($name)}}</i></h3> <!--بتحول لكود html-->
+@section('styles')
+    {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">--}}
+    <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 
-    @if($title)
-        {{$title}}
-    @else
-        No title
-    @endif
+@endsection
 
-    <h2>Entries</h2>
+
+@section('content')
+
+<h3>Welcome {{$name}}</h3>
+
+@if($title)
+    {{$title}}
+@else
+    No title
+@endif
+
+<h2>Entries</h2>
 <ul>
     @foreach($entries as $item)
-        {{--<li>{{$item}}</li>--}}
-
-        {{--<li>{{$loop->index}} {{$item}}</li>--}}
-
-        {{--<li>{{$loop->iteration}} {{$item}}</li> <!--العد سيكون من 1-->--}}
-
-
 
         <li @if ($loop->first) style="color: red" @endif>{{$item}}</li>
 
 
-
     @endforeach
 </ul>
-</head>
-<body>
 
-</body>
-</html>
+@endsection

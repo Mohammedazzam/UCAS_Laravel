@@ -8,6 +8,9 @@ class TimelineController extends Controller
 {
     public function index(){
         //return __METHOD__;
-        return view('timeline.index');
+        return view('timeline.index',[
+            'name'=> 'Mohammed',
+            'title'=> "Web Developer"
+        ]);
     }
 }

@@ -41,3 +41,11 @@ Route::get('/', function () {
 
 
 Route::get('/timeline','TimelineController@index');
+
+
+Rout::get('/posts','PostsController@index');
+Rout::get('/posts/create','PostsController@create');
+Rout::post('/posts','PostsController@store');
+Rout::get('/posts/{id}','PostsController@edit');
+Rout::put('/posts/{id}','PostsController@update');
+Rout::delet('posts/{id}','PostsController@destroy');

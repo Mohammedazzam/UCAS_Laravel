@@ -11,4 +11,7 @@ class Post extends Model
 //    protected $primaryKey= 'id';
 //    public $incrementing ='true';
 //    public $timestamps ='true';
+
+
+protected $fillable=[ 'content','user_id'];
 }

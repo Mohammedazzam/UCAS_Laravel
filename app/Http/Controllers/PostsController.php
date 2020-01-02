@@ -19,10 +19,14 @@ class PostsController extends Controller
     public function store(Request $request){
 //هنا بخزن في الDB
         //الطريقة الأولى
-//        $post = new Post();
-//        $post->content = $request->input('content');
-//        $post->user_id = null;
-//        $post->save();
+        $post = new Post();
+        $post->content = $request->input('content');
+        $post->user_id = null;
+        $post->save();
+
+       return redirect('/posts');
+//       return redirect()->action('index');
+
 
         //الطريقة الثانيةولكن لازم أعمل في المودل أمر ال fillable
 //        Post::create([
@@ -31,11 +35,12 @@ class PostsController extends Controller
 //        ]);
 
         //الطريقة الثالثة
-//        Post::create($request->all([]));//هذه بجيب الكل
-        Post::create($request->only([
-            'content',
-            'user_id'
-        ]));
+////        Post::create($request->all([]));//هذه بجيب الكل
+//        Post::create($request->only([
+//            'content',
+//            'user_id'
+//        ]));
+
     }
 
     public function edit($id){

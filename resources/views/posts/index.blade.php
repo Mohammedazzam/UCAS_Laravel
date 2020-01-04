@@ -16,6 +16,7 @@
                 <th>ID</th>
                 <th>Content</th>
                 <th>Crated At</th>
+                <th>Updated At</th>
             </tr>
         </thead>
 
@@ -28,6 +29,18 @@
             {{--<td>{{$post->created_at}}</td>--}}
             {{--<td>{{$post->created_at->format('d/m/y')}}</td>--}}
             <td>{{$post->created_at->diffForHumans()}}</td>
+            <td>{{$post->updated_at->diffForHumans()}}</td>
+
+
+            <td><a href="/posts/{{$post->id}}">Edit</a></td>
+            <td>
+                <form action="/posts/{{$post->id}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-link">Delete</button>
+                </form>
+            </td>
+
 
         </tr>
     @endforeach

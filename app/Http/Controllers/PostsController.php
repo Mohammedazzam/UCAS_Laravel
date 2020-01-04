@@ -8,8 +8,15 @@ class PostsController extends Controller
 {
     public function index(){
 
-        return Post::all();//راح ترجع كل الريكورد الموجودة
+//        return Post::all();//راح ترجع كل الريكورد الموجودةعلى شكل array json
+
+
+        return view('posts.index',[
+           'posts' => Post::all(),
+        ]);
     }
+
+
 
     public function create(){
 

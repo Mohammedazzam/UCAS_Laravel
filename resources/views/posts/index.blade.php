@@ -25,7 +25,10 @@
         <tr>
             <td>{{$post->id}}</td>
             <td>{{$post->content}}</td>
-            <td>{{$post->created_at}}</td>
+            {{--<td>{{$post->created_at}}</td>--}}
+            {{--<td>{{$post->created_at->format('d/m/y')}}</td>--}}
+            <td>{{$post->created_at->diffForHumans()}}</td>
+
         </tr>
     @endforeach
     </tbody>

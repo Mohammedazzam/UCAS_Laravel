@@ -23,6 +23,8 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
+
+
     public function store(Request $request){
 //هنا بخزن في الDB
         //الطريقة الأولى
@@ -33,7 +35,7 @@ class PostsController extends Controller
 
 //       return redirect('/posts');
 //        return redirect(route('posts'));
-        return redirect()->route('posts');
+        return redirect()->route('posts')->with('message','Post created!');
 
 
 
@@ -80,7 +82,7 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         if (!$post){
-            return redirect('/posts');
+            return redirect('/posts')->with('message','Post Updated!');
         }
         //الطريقة الأولى لعمل الupdate
         $post->content =$request->input('content');
@@ -105,11 +107,11 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         if (!$post){
-            return redirect()->route('posts');
+            return redirect()->route('posts')->with('message','Post Not Found !');
         }
         //الطريقة الأولى
         $post->delete();
-        return redirect()->route('posts');
+        return redirect()->route('posts')->with('message','Post Deleted !');
 
         //الطريقة الثانيةوهذه الطريقة تغنيني عن كل الخطوات السابقة
         Post::where('id',$id)->delete();

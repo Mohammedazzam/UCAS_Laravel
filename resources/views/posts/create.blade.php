@@ -11,10 +11,10 @@
 
     <h2>Create New Post</h2>
 
-    <form method="post" action="{{route('post.store')}}">
+    <form method="post" action="{{route('posts.store')}}">
         @csrf
         {{--<input type="hidden" name="_token" value="{{csrf_token()}}" >--}}
-        {{--<!--<input type="hidden" name="_token" value="{{csrf_token()}}" > -->--}}
+        {{--<!--<input type="hidden" name="_token"  value="{{csrf_token()}}" > -->--}}
 
         <div class="form-group">
             <label class="col-4"></label>

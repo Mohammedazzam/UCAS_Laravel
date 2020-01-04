@@ -10,6 +10,12 @@
 
     <h2>Posts</h2>
 
+    @if(session('message'))
+        <div class="alert alert-success">
+            <p>{{session('message')}}</p>
+        </div>
+     @endif
+
     <table class="table">
         <thead>
             <tr>

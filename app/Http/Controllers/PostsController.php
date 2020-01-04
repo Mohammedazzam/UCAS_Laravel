@@ -37,7 +37,7 @@ class PostsController extends Controller
         //الطريقة الثالثة
 ////        Post::create($request->all([]));//هذه بجيب الكل
 //        Post::create($request->only([
-//            'content',
+//            'content',.
 //            'user_id'
 //        ]));
 
@@ -45,13 +45,61 @@ class PostsController extends Controller
 
     public function edit($id){
 
+       $post = Post::find($id);
+       if (!$post){
+          return redirect('/posts');
+       }
+//        return view('posts.edit',compact(['post']));//compact قمت بعمل  لإرجاع القيم ال
+
+
+//        return view('posts.edit',[       //حل آخر لإرجاع القيم
+//            'post'=>$post
+//        ]);
+
+
+         return view('posts.edit')->with([        //حل آخر لإرجاع القيم
+            'post'=>$post
+        ]);
     }
+
+
 
     public function update(Request $request, $id){
 
+        $post = Post::find($id);
+        if (!$post){
+            return redirect('/posts');
+        }
+        //الطريقة الأولى لعمل الupdate
+        $post->content =$request->input('content');
+        $post->save();
+        return redirect('/posts');
+
+
+        //الطريقة الثانية هنا يطبق على جميع الريكورد
+//        $post->update([
+//            'content'=> $request->input('content')
+//        ]);
+
+
+        //الطريقة الثالثةهنا قمت بعمل شرط وتحديد  من سيرجع
+//        Post::where('id',$id)->update([
+//           'content' => $request->input('content')
+//        ]);
     }
+
 
     public function destroy($id){
 
+        $post = Post::find($id);
+        if (!$post){
+            return redirect('/posts');
+        }
+        //الطريقة الأولى
+        $post->delete();
+        return redirect('/posts');
+
+        //الطريقة الثانيةوهذه الطريقة تغنيني عن كل الخطوات السابقة
+        Post::where('id',$id)->delete();
     }
 }

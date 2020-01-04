@@ -43,9 +43,9 @@ Route::get('/', function () {
 Route::get('/timeline','TimelineController@index');
 
 
-Rout::get('/posts','PostsController@index');
-Rout::get('/posts/create','PostsController@create');
-Rout::post('/posts','PostsController@store');
-Rout::get('/posts/{id}','PostsController@edit');
-Rout::put('/posts/{id}','PostsController@update');
-Rout::delet('posts/{id}','PostsController@destroy');
+Route::get('/posts','PostsController@index');
+Route::get('/posts/create','PostsController@create');
+Route::post('/posts','PostsController@store');
+Route::get('/posts/{id}','PostsController@edit');
+Route::put('/posts/{id}','PostsController@update');
+Route::delete('posts/{id}','PostsController@destroy');

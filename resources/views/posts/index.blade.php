@@ -32,9 +32,10 @@
             <td>{{$post->updated_at->diffForHumans()}}</td>
 
 
-            <td><a href="/posts/{{$post->id}}">Edit</a></td>
+            <td><a href="{{route('posts.edit',[$post->id])}}">Edit</a></td>
+            {{--<td><a href="{{route('posts.edit',[ 'id'=>$post->id])}}">Edit</a></td>--}}
             <td>
-                <form action="/posts/{{$post->id}}" method="post">
+                <form action="{{route('posts.destroy',[$post->id])}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-link">Delete</button>

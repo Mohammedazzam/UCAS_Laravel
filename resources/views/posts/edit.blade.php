@@ -11,7 +11,7 @@
 
     <h2>Edit Post <span>{{$post->id}}</span></h2>
 
-    <form method="post" action="/posts/{{$post->id}}">
+    <form method="post" action="{{route('posts.update', [$post->id])}}">
         @csrf
 
         @method('PUT')

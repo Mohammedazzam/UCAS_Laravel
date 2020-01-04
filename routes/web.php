@@ -43,9 +43,9 @@ Route::get('/', function () {
 Route::get('/timeline','TimelineController@index');
 
 
-Route::get('/posts','PostsController@index');
-Route::get('/posts/create','PostsController@create');
-Route::post('/posts','PostsController@store');
-Route::get('/posts/{id}','PostsController@edit');
-Route::put('/posts/{id}','PostsController@update');
-Route::delete('posts/{id}','PostsController@destroy');
+Route::get('/posts','PostsController@index')->name('posts');
+Route::get('/posts/create','PostsController@create')->name('posts.create');
+Route::post('/posts','PostsController@store')->name('posts.store');
+Route::get('/posts/{id}','PostsController@edit')->name('posts.edit');
+Route::put('/posts/{id}','PostsController@update')->name('posts.update');
+Route::delete('posts/{id}','PostsController@destroy')->name('posts.destroy');

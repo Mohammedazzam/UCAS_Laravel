@@ -11,7 +11,7 @@
 
     <h2>Create New Post</h2>
 
-    <form method="post" action="/posts">
+    <form method="post" action="{{route('post.store')}}">
         @csrf
         {{--<input type="hidden" name="_token" value="{{csrf_token()}}" >--}}
         {{--<!--<input type="hidden" name="_token" value="{{csrf_token()}}" > -->--}}

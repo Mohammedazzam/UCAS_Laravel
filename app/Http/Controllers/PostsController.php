@@ -31,7 +31,12 @@ class PostsController extends Controller
         $post->user_id = null;
         $post->save();
 
-       return redirect('/posts');
+//       return redirect('/posts');
+//        return redirect(route('posts'));
+        return redirect()->route('posts');
+
+
+
 //       return redirect()->action('index');
 
 
@@ -54,7 +59,7 @@ class PostsController extends Controller
 
        $post = Post::find($id);
        if (!$post){
-          return redirect('/posts');
+           return redirect()->route('posts');
        }
 //        return view('posts.edit',compact(['post']));//compact قمت بعمل  لإرجاع القيم ال
 
@@ -80,7 +85,7 @@ class PostsController extends Controller
         //الطريقة الأولى لعمل الupdate
         $post->content =$request->input('content');
         $post->save();
-        return redirect('/posts');
+        return redirect()->route('posts');
 
 
         //الطريقة الثانية هنا يطبق على جميع الريكورد
@@ -100,11 +105,11 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         if (!$post){
-            return redirect('/posts');
+            return redirect()->route('posts');
         }
         //الطريقة الأولى
         $post->delete();
-        return redirect('/posts');
+        return redirect()->route('posts');
 
         //الطريقة الثانيةوهذه الطريقة تغنيني عن كل الخطوات السابقة
         Post::where('id',$id)->delete();

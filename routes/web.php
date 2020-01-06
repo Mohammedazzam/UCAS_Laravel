@@ -43,7 +43,8 @@ Route::get('/', function () {
 Route::get('/timeline','TimelineController@index');
 
 
-Route::get('/posts','PostsController@index')->name('posts');
+//Route::get('/posts','PostsController@index')->name('posts');
+Route::get('/posts','PostsController@index')->name('posts')->middleware('auth');
 Route::get('/posts/create','PostsController@create')->name('posts.create');
 Route::post('/posts','PostsController@store')->name('posts.store');
 Route::get('/posts/{id}','PostsController@edit')->name('posts.edit');

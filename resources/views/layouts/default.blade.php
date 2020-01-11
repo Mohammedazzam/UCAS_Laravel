@@ -14,6 +14,9 @@
 
     <header class="bg-light">
         <h1>Simple Twitter</h1>
+        @auth
+        Welcome, {{Auth::user()->name}} <!--حتى يظهر اسم المستخدم-->
+        @endauth
     </header>
 
     <main>

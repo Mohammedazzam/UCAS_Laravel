@@ -52,6 +52,9 @@ Route::put('/posts/{id}','PostsController@update')->name('posts.update');
 Route::delete('posts/{id}','PostsController@destroy')->name('posts.destroy');
 
 
-Auth::routes();
+Auth::routes([
+//    'register'=>false
+       'verify'=> true
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
